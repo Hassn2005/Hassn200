@@ -1,5 +1,8 @@
 import { Gem, Palette, Sparkles, Star } from 'lucide-react';
-import { featureItems } from '../data/siteData';
+import { useEffect, useState } from 'react';
+import { featureItems, type FeatureItem } from '../data/siteData';
+import { fetchFeatures } from '../services/siteContent';
+import { useLanguage } from '../i18n/useLanguage';
 
 const iconMap = {
   sparkles: Sparkles,
@@ -9,18 +12,25 @@ const iconMap = {
 };
 
 function Features() {
+  const [items, setItems] = useState<FeatureItem[]>(featureItems);
+  const { language } = useLanguage();
+
+  useEffect(() => {
+    void fetchFeatures().then(setItems).catch(() => undefined);
+  }, []);
+
   return (
     <section id="features" className="scroll-mt-28 bg-[#f3e7e0] py-16 sm:py-20 lg:py-24">
       <div className="section-shell">
         <div className="mx-auto max-w-3xl text-center">
           <div className="mb-4 inline-flex rounded-full border border-[#b8877d]/30 bg-white/40 px-3 py-1.5 text-[11px] font-medium uppercase tracking-[0.22em] text-[#715a55]">
-            What defines us
+            {language === 'ar' ? 'ما يميزنا' : 'What defines us'}
           </div>
-          <h2 className="brand-serif text-5xl leading-none text-[#2d1d1d] sm:text-6xl">A brand shaped by thoughtful details.</h2>
+          <h2 className="brand-serif text-5xl leading-none text-[#2d1d1d] sm:text-6xl">{language === 'ar' ? 'علامة تصنعها التفاصيل المدروسة.' : 'A brand shaped by thoughtful details.'}</h2>
         </div>
 
         <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-          {featureItems.map(({ title, description, icon }) => {
+          {items.map(({ title, description, icon, title_ar, description_ar }) => {
             const Icon = iconMap[icon];
 
             return (
@@ -31,8 +41,8 @@ function Features() {
                 <div className="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-full bg-[#f4e2d8] text-[#563d3b] transition duration-300 group-hover:scale-105 group-hover:bg-[#ead6cc]">
                   <Icon size={26} />
                 </div>
-                <h3 className="brand-serif text-4xl text-[#2d1d1d]">{title}</h3>
-                <p className="mt-4 text-base leading-7 text-[#5d4d4b]">{description}</p>
+                <h3 className="brand-serif text-4xl text-[#2d1d1d]">{language === 'ar' ? title_ar ?? title : title}</h3>
+                <p className="mt-4 text-base leading-7 text-[#5d4d4b]">{language === 'ar' ? description_ar ?? description : description}</p>
               </article>
             );
           })}

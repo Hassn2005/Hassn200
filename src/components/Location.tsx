@@ -1,14 +1,33 @@
 import { MapPin, Clock3 } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import { footerDetails, type SiteSettings } from '../data/siteData';
+import { fetchSiteSettings } from '../services/siteContent';
+import { useLanguage } from '../i18n/useLanguage';
 
 function Location() {
+  const [settings, setSettings] = useState<SiteSettings>({
+    brand_name: footerDetails.brand,
+    description: footerDetails.description,
+    phone: footerDetails.phone,
+    whatsapp: footerDetails.whatsapp,
+    instagram: footerDetails.instagram,
+    address: 'Al-Mahatta Street, Daraa, Syria',
+    opening_hours: 'Sun-Thu: 10:00 AM - 10:00 PM',
+  });
+  const { language } = useLanguage();
+
+  useEffect(() => {
+    void fetchSiteSettings().then(setSettings).catch(() => undefined);
+  }, []);
+
   return (
     <section id="location" className="section-shell scroll-mt-28 py-16 sm:py-20 lg:py-24">
       <div className="grid items-center gap-8 lg:grid-cols-[1.02fr_0.98fr] lg:gap-12">
         <div>
           <div className="mb-4 inline-flex rounded-full border border-[#b8877d]/30 bg-[#fff7f4] px-3 py-1.5 text-[11px] font-medium uppercase tracking-[0.22em] text-[#715a55]">
-            Our location
+            {language === 'ar' ? 'موقعنا' : 'Our location'}
           </div>
-          <h2 className="brand-serif text-5xl leading-none text-[#2d1d1d] sm:text-6xl">Visit the Dantil boutique.</h2>
+          <h2 className="brand-serif text-5xl leading-none text-[#2d1d1d] sm:text-6xl">{language === 'ar' ? 'زوري بوتيك دانتيل.' : 'Visit the Dantil boutique.'}</h2>
 
           <div className="mt-8 space-y-6 rounded-[2rem] border border-[#d8b8b0]/60 bg-[#fffaf8]/70 p-6 shadow-[0_18px_45px_rgba(97,70,62,0.08)]">
             <div className="flex items-start gap-4">
@@ -16,8 +35,8 @@ function Location() {
                 <MapPin size={20} />
               </div>
               <div>
-                <div className="text-[10px] uppercase tracking-[0.18em] text-[#72615f]">Address</div>
-                <p className="mt-1 text-lg font-medium text-[#2d1d1d]">Al-Mahatta Street, Daraa, Syria</p>
+                <div className="text-[10px] uppercase tracking-[0.18em] text-[#72615f]">{language === 'ar' ? 'العنوان' : 'Address'}</div>
+                <p className="mt-1 text-lg font-medium text-[#2d1d1d]">{settings.address}</p>
               </div>
             </div>
 
@@ -26,8 +45,8 @@ function Location() {
                 <Clock3 size={20} />
               </div>
               <div>
-                <div className="text-[10px] uppercase tracking-[0.18em] text-[#72615f]">Opening hours</div>
-                <p className="mt-1 text-lg font-medium text-[#2d1d1d]">Sun–Thu: 10:00 AM – 10:00 PM</p>
+                <div className="text-[10px] uppercase tracking-[0.18em] text-[#72615f]">{language === 'ar' ? 'ساعات الدوام' : 'Opening hours'}</div>
+                <p className="mt-1 text-lg font-medium text-[#2d1d1d]">{settings.opening_hours}</p>
               </div>
             </div>
           </div>

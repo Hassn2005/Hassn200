@@ -7,6 +7,8 @@ export type FeatureItem = {
   title: string;
   description: string;
   icon: 'sparkles' | 'gem' | 'palette' | 'star';
+  title_ar?: string;
+  description_ar?: string;
 };
 
 export type ContactMethod = {
@@ -16,10 +18,35 @@ export type ContactMethod = {
   icon: 'messageCircle' | 'instagram' | 'phone' | 'mapPin';
 };
 
+export type SiteSettings = {
+  brand_name: string;
+  description: string;
+  phone: string;
+  whatsapp: string;
+  instagram: string;
+  address: string;
+  opening_hours: string;
+};
+
+export type Product = {
+  id: string;
+  name: string;
+  description: string | null;
+  price: number | null;
+  currency: string;
+  image_url: string | null;
+  category: string | null;
+  is_active?: boolean;
+  name_ar?: string | null;
+  description_ar?: string | null;
+  category_ar?: string | null;
+};
+
 export const navItems: NavItem[] = [
   { label: 'Home', href: '#home' },
   { label: 'About', href: '#about' },
   { label: 'Features', href: '#features' },
+  { label: 'Collection', href: '#products' },
   { label: 'Location', href: '#location' },
   { label: 'Contact', href: '#contact' },
 ];

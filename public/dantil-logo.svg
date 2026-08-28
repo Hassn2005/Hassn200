@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-labelledby="title desc">
+  <title id="title">Dantil logo</title>
+  <desc id="desc">A refined floral jewel mark for Dantil</desc>
+  <circle cx="50" cy="50" r="47" fill="#f3e2d9" stroke="#c99d91" stroke-width="2"/>
+  <path d="M50 25c-7-8-19-3-16 7 2 6 9 8 16 13 7-5 14-7 16-13 3-10-9-15-16-7Z" fill="none" stroke="#513635" stroke-width="3.5" stroke-linejoin="round"/>
+  <path d="M50 45c-9 0-16 7-16 16 0 7 5 12 12 12 2 0 3-1 4-3 1 2 2 3 4 3 7 0 12-5 12-12 0-9-7-16-16-16Z" fill="none" stroke="#513635" stroke-width="3.5" stroke-linejoin="round"/>
+  <path d="M50 45v25M39 56c5 2 8 5 11 10M61 56c-5 2-8 5-11 10" fill="none" stroke="#b47769" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="50" cy="25" r="3" fill="#b47769"/>
+</svg>

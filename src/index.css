@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
 @import 'tailwindcss';
 
 :root {
@@ -17,11 +17,191 @@ html {
   scroll-behavior: smooth;
 }
 
+html[lang='ar'] body {
+  font-family: 'Cairo', sans-serif;
+  line-height: 1.75;
+}
+
+html[lang='ar'] .brand-serif {
+  font-family: 'Cairo', sans-serif;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+html[lang='ar'] button:not([aria-label]) {
+  min-height: 46px;
+  padding-block: 0.7rem;
+  padding-inline: 1.25rem;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+html[lang='ar'] input,
+html[lang='ar'] textarea,
+html[lang='ar'] select {
+  font-family: 'Cairo', sans-serif;
+  line-height: 1.6;
+}
+
 body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
   background: linear-gradient(180deg, #f8f1ee 0%, #f9f1ee 100%);
+}
+
+:root[data-theme='dark'] body {
+  background: linear-gradient(180deg, #21191a 0%, #2b2020 100%);
+  color: #f8eeeb;
+}
+
+:root[data-theme='dark'] .bg-\[\#f9f1ee\],
+:root[data-theme='dark'] .bg-\[\#f7f1ee\] {
+  background-color: #2b2020;
+}
+
+:root[data-theme='dark'] .text-\[\#2d1d1d\],
+:root[data-theme='dark'] .text-\[\#2a1d1d\] {
+  color: #f8eeeb;
+}
+
+/* Keep the admin shell aligned with the document direction. */
+[dir='rtl'] aside.fixed {
+  left: auto;
+  right: 0;
+}
+
+[dir='rtl'] main > div.min-h-screen {
+  margin-left: 0 !important;
+  margin-right: 16rem !important;
+}
+
+:root[data-theme='dark'] main,
+:root[data-theme='dark'] main > div,
+:root[data-theme='dark'] aside.fixed,
+:root[data-theme='dark'] header,
+:root[data-theme='dark'] .bg-\[\#fffaf8\],
+:root[data-theme='dark'] .bg-\[\#f9f1ee\] {
+  background-color: #241b1d !important;
+  color: #f8eeeb !important;
+}
+
+:root[data-theme='dark'] input,
+:root[data-theme='dark'] textarea,
+:root[data-theme='dark'] select {
+  background-color: #322427 !important;
+  border-color: #72545a !important;
+  color: #f8eeeb !important;
+}
+
+:root[data-theme='dark'] .border-\[\#d7b5aa\],
+:root[data-theme='dark'] .border-\[\#ead7d0\] {
+  border-color: #684b50 !important;
+}
+
+:root[data-theme='dark'] .text-\[\#5d4d4b\],
+:root[data-theme='dark'] .text-\[\#80645e\] {
+  color: #d9c2bd !important;
+}
+
+.admin-store-panel {
+  background: #fffaf8;
+}
+
+.admin-store-card {
+  border-color: #ead7d0;
+  background: #fdf8f5;
+  color: #2d1d1d;
+}
+
+.admin-store-note {
+  background: #f3e3db;
+  color: #5d4d4b;
+}
+
+:root[data-theme='dark'] .admin-store-panel {
+  background: #2c2022 !important;
+  border-color: #684b50 !important;
+}
+
+:root[data-theme='dark'] .admin-store-card {
+  background: #38282b !important;
+  border-color: #684b50 !important;
+  color: #f8eeeb !important;
+}
+
+:root[data-theme='dark'] .admin-store-note {
+  background: #493136 !important;
+  color: #ead8d3 !important;
+}
+
+:root[data-theme='dark'] body {
+  background: #241b1d !important;
+}
+
+:root[data-theme='dark'] main section,
+:root[data-theme='dark'] footer {
+  background-color: #241b1d !important;
+}
+
+:root[data-theme='dark'] [class*='bg-[#fff'],
+:root[data-theme='dark'] [class*='bg-white'],
+:root[data-theme='dark'] [class*='bg-[#f9'],
+:root[data-theme='dark'] [class*='bg-[#f7'],
+:root[data-theme='dark'] [class*='bg-[#f6'],
+:root[data-theme='dark'] [class*='bg-[#f3'],
+:root[data-theme='dark'] [class*='bg-[#f2'],
+:root[data-theme='dark'] [class*='bg-[#efe'],
+:root[data-theme='dark'] [class*='bg-[#ead'] {
+  background-color: #302326 !important;
+}
+
+:root[data-theme='dark'] .dark-site-nav {
+  background: rgba(48, 35, 38, 0.92) !important;
+  border-color: #684b50 !important;
+  box-shadow: 0 18px 40px rgba(10, 5, 7, 0.32) !important;
+}
+
+:root[data-theme='dark'] .dark-site-control {
+  background: #493136 !important;
+  border-color: #8a6268 !important;
+  color: #f8eeeb !important;
+}
+
+:root[data-theme='dark'] [class*='text-[#2d'],
+:root[data-theme='dark'] [class*='text-[#2a'],
+:root[data-theme='dark'] [class*='text-[#3'],
+:root[data-theme='dark'] [class*='text-[#4'],
+:root[data-theme='dark'] [class*='text-[#5'],
+:root[data-theme='dark'] [class*='text-[#6'],
+:root[data-theme='dark'] [class*='text-[#7'] {
+  color: #f1e4e0 !important;
+}
+
+:root[data-theme='dark'] [class*='border-[#'] {
+  border-color: #684b50 !important;
+}
+
+:root[data-theme='dark'] .hero-title {
+  color: #fff4ef !important;
+}
+
+:root[data-theme='dark'] .hero-title span {
+  color: #d9a99e !important;
+}
+
+:root[data-theme='dark'] .hero-description {
+  color: #ead8d2 !important;
+}
+
+:root[data-theme='dark'] .hero-secondary-button {
+  background: #38282b !important;
+  border-color: #8a6268 !important;
+  color: #f4dfd9 !important;
+}
+
+:root[data-theme='dark'] .hero-stat-label {
+  color: #c7aca7 !important;
 }
 
 * {

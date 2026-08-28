@@ -1,14 +1,25 @@
 import { Helmet } from 'react-helmet-async';
 import About from './components/About';
+import Admin from './components/Admin';
 import Contact from './components/Contact';
 import Features from './components/Features';
 import Footer from './components/Footer';
 import Hero from './components/Hero';
 import Location from './components/Location';
 import Navbar from './components/Navbar';
+import Products from './components/Products';
 import Welcome from './components/Welcome';
+import { LanguageProvider } from './i18n/LanguageContext';
 
 function App() {
+  if (window.location.pathname.startsWith('/admin')) {
+    return (
+      <LanguageProvider>
+        <Admin />
+      </LanguageProvider>
+    );
+  }
+
   return (
     <>
       <Helmet>
@@ -41,6 +52,7 @@ function App() {
         />
       </Helmet>
 
+      <LanguageProvider>
       <div className="min-h-screen bg-[#f9f1ee] text-[#2d1d1d] antialiased">
         <Navbar />
 
@@ -48,6 +60,7 @@ function App() {
           <Hero />
           <About />
           <Features />
+          <Products />
           <Location />
           <Contact />
           <Welcome />
@@ -55,6 +68,7 @@ function App() {
 
         <Footer />
       </div>
+      </LanguageProvider>
     </>
   );
 }

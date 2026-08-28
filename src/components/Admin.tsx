@@ -134,7 +134,7 @@ function Admin() {
       return;
     }
     const { error: loginError } = await supabase.auth.signInWithPassword({
-      email: import.meta.env.VITE_ADMIN_EMAIL,
+      email: "hasan2005@gmail.com",
       password,
     });
     if (loginError)
